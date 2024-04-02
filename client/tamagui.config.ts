@@ -1,17 +1,12 @@
-import { config } from "@tamagui/config/v3";
+import { config as configBase } from '@tamagui/config/v3'
+import { createTamagui } from 'tamagui'
 
-import { Text, View } from "react-native";
+export const config = createTamagui(configBase)
 
-import { createTamagui } from "tamagui"; // or '@tamagui/core'
-const appConfig = createTamagui(config);
-export type AppConfig = typeof appConfig;
-declare module "tamagui" {
-  // or '@tamagui/core'
+export default config
 
-  // overrides TamaguiCustomConfig so your custom types
+export type Conf = typeof config
 
-  // work everywhere you import `tamagui`
-
-  interface TamaguiCustomConfig extends AppConfig {}
+declare module 'tamagui' {
+  interface TamaguiCustomConfig extends Conf {}
 }
-export default appConfig;
