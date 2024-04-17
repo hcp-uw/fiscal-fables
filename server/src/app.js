@@ -11,6 +11,18 @@ app.get('/hello', (req, res) => {
   res.send('Hello, World!');
 });
 
+app.get('/login', (req, res) => {
+  res.type('text');
+  res.send('Hello, World!');
+  console.log(req);
+});
+
+app.get("/users/:user/emails/:email", (req, res) => {
+  // Access userId via: req.params.user
+  // Access bookId via: req.params.email
+  res.send(req.params);
+});
+
 // Tells our app to listen to the given port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
