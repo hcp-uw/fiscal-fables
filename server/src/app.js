@@ -9,6 +9,7 @@ app.use(cors());
 app.get('/hello', (req, res) => {
   res.type('text');
   res.send('Hello, World!');
+  // console.log(req.params.Email);
 });
 
 app.get('/login', (req, res) => {
