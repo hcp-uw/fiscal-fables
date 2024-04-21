@@ -77,6 +77,60 @@ app.get("/courses", (req, res) => {
   res.send(req.params);
 });
 
+//getUserLogin()
+app.get("/username/:username/email/:email/password/:password", (req, res) => {
+
+  res.send(req.params);
+});
+
+//getCourseByID()
+app.get("/courseID/:courseID", (req, res) => {
+
+  //Fetch courses data
+
+  let courses = [
+    {
+      courseID: 1234,
+      courseImage: "image.com",
+      questions: [
+        {questionsText: "What is your name?",
+        coinValue: 100,
+        answers: [
+          {
+            isCorrect: false,
+            text: answer1
+          },
+
+          {
+            isCorrect: false,
+            text: answer2
+          },
+
+          {
+            isCorrect: false,
+            text: answer3
+          },
+
+          {
+            isCorrect: true,
+            text: answer4
+          }
+        ]}
+          
+      ]
+      }
+      
+
+  ]
+  res.send(req.params);
+});
+
+//getAnswer()
+app.get("/courseID/:courseID/qNumber/:qNumber", (req, res) => {
+  res.send(req.params);
+});
+
+
 // Tells our app to listen to the given port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
