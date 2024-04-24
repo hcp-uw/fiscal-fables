@@ -1,4 +1,4 @@
-import { Text, View, YStack } from "tamagui";
+import { Button, Text, View, YStack } from "tamagui";
 import AnswerList from "../components/quiz/answerlist";
 import UnitHeader from "../components/quiz/unitheader";
 import ProgressBar from "../components/quiz/progressbar";
@@ -27,6 +27,7 @@ export default function UnitOneScreen() {
         <Text color="$green7">{questionText}</Text>
       </YStack>
       <AnswerList header="Select the biggest bank in the world" />
+      <Button>Submit</Button>;
     </View>
   );
 }
