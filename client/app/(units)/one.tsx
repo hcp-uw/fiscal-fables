@@ -1,10 +1,12 @@
-import { Text, View } from "tamagui";
-import Answers from "../components/quiz/answers";
+import { Text, View, YStack } from "tamagui";
+import AnswerList from "../components/quiz/answerlist";
 import UnitHeader from "../components/quiz/unitheader";
 import ProgressBar from "../components/quiz/progressbar";
 import { ProgressDemo } from "../components/quiz/demo";
 
 export default function UnitOneScreen() {
+  const questionNum = 1;
+  const questionText = "What is the biggest bank in the world?";
   // Unit header component
   // progress bar component
   // Question component
@@ -16,10 +18,15 @@ export default function UnitOneScreen() {
   // answer C
   // answer D
   return (
-    <View flex={1} alignItems="center">
+    <View flex={1} alignItems="center" gap="$5">
       <UnitHeader unit="1" />
       <ProgressBar header="Progress" />
       <ProgressDemo />
+      <YStack alignItems="center" justifyContent="center" gap="$2">
+        <Text color="$green7">Question {questionNum}</Text>
+        <Text color="$green7">{questionText}</Text>
+      </YStack>
+      <AnswerList header="Select the biggest bank in the world" />
     </View>
   );
 }

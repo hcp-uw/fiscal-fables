@@ -23,7 +23,7 @@ export function ProgressDemo() {
           Size: {size}
         </Paragraph>
 
-        <Progress size={} value={progress}>
+        <Progress value={progress}>
           <Progress.Indicator animation="bouncy" />
         </Progress>
       </YStack>
