@@ -1,3 +1,11 @@
+// Declare mongoose
+const mongoose = require('mongoose');
+mongoose.set("strictQuery", false);
+
+// Get URL to mongo deployment
+const dotenv = require('dotenv').config()
+const mongoURL = dotenv.parsed.DB_URL;
+
 const express = require('express');
 const cors = require('cors');
 
@@ -17,22 +25,22 @@ let courseData = [
       answers: [
         {
           isCorrect: false,
-          text: answer1
+          text: 'answer1'
         },
 
         {
           isCorrect: false,
-          text: answer2
+          text: 'answer2'
         },
 
         {
           isCorrect: false,
-          text: answer3
+          text: 'answer3'
         },
 
         {
           isCorrect: true,
-          text: answer4
+          text: 'answer4'
         }
       ]}
         
