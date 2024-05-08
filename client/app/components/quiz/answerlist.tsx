@@ -2,22 +2,30 @@ import { CardProps, RadioGroup, YStack } from "tamagui";
 import Answer from "./answer";
 
 interface AnswerListProps extends CardProps {
-  header: String;
-  subHeader?: String;
+  answers: string[];
+  onValueChange: (value: string) => void;
 }
 
 export default function AnswerList({
-  header,
-  subHeader,
+  answers,
+  onValueChange,
   ...props
 }: AnswerListProps) {
   return (
-    <RadioGroup aria-labelledby="Choose Your Answer" name="questionForm">
+    <RadioGroup
+      aria-labelledby="Choose Your Answer"
+      name="questionForm"
+      onValueChange={onValueChange}
+    >
       <YStack width={300} alignItems="center" gap="$5">
-        <Answer size="$5" value="1" answer="First value" />
-        <Answer size="$5" value="2" answer="Second value" />
-        <Answer size="$5" value="3" answer="Third value" />
-        <Answer size="$5" value="4" answer="Fourth value" />
+        {answers.map((answer, index) => (
+          <Answer
+            size="$5"
+            value={String(index + 1)}
+            answer={answer}
+            key={index}
+          />
+        ))}
       </YStack>
     </RadioGroup>
   );
