@@ -18,29 +18,27 @@ app.use(cors());
 let courseData = [
   {
     courseID: 1234,
+    courseName: "intro to finance",
     courseImage: "image.com",
     questions: [
       {questionsText: "What is your name?",
       coinValue: 100,
+      correctIndex: 1,
       answers: [
         {
-          isCorrect: false,
-          text: 'answer1'
+          text: answer1
         },
 
         {
-          isCorrect: false,
-          text: 'answer2'
+          text: answer2
         },
 
         {
-          isCorrect: false,
-          text: 'answer3'
+          text: answer3
         },
 
         {
-          isCorrect: true,
-          text: 'answer4'
+          text: answer4
         }
       ]}
         
@@ -52,17 +50,29 @@ let userData = [
   {
     name: "bill",
     email: "google", 
-    coins: 100
+    coins: 100,
+    courses: [{
+      course1
+    }
+    ]
   },
   {
     name: "anupritaa", 
     email: "yahoo", 
-    coins: 200
+    coins: 200,
+    courses: [{
+      course1
+    }
+    ]
   }, 
   {
     name: "johnny",
     email: "hotmail",
-    coins: 100
+    coins: 100,
+    courses: [{
+      course1
+    }
+    ]
   }
 ];
 
@@ -92,20 +102,24 @@ app.get("/user/:user/email/:email", (req, res) => {
  * - courses(array of courses)
  */
 app.get("/username/:username", (req, res) => {
-  res.send(req.params);
+  
+
 
   // Get data from database
-
+  console.log(req.params.username)
   // For example, check the table to make the user exists
-
+  for(let i = 0; i < userData.length; i++ ){
+    if(userData[i].name === req.params.username){
+      res.send({
+        email: userData[i].email,
+        coins: userData[i].coins,
+        courses: userData[i].courses
+      })
+    }
+  }
   // ... Do some computation
 
   // Return the requested data
-  res.send({
-    email: "",
-    coins: 100, 
-    courseData: []
-  })
 });
 
 /**
@@ -159,6 +173,7 @@ app.get("/courses", (req, res) => {
  */
 app.get("/username/:username/email/:email/password/:password", (req, res) => {
 
+
   res.send(req.params);
 });
 
@@ -171,6 +186,20 @@ app.get("/courseID/:courseID", (req, res) => {
 
   //Fetch courses data
 
+  //Log parameters
+  console.log(req.params.courseID)
+
+  //Look for course according to ID
+  for(let i = 0; i < courseData.length; i++){
+    if(courseData[i].courseID == req.params.courseID){
+      res.send({
+        courseImage: courseData[i].courseImage,
+        questions: courseData[i].questions
+      })
+    }
+  }
+
+  res.send({})
   
   res.send(req.params);
 });
@@ -181,6 +210,22 @@ app.get("/courseID/:courseID", (req, res) => {
  * Returns: TODO
  */
 app.get("/courseID/:courseID/qNumber/:qNumber", (req, res) => {
+
+  //Log parameters
+  console.log(req.params.courseID)
+  console.log(req.params.qNumber)
+
+  for(let i = 0; i < courseData.length; i++){
+    if(courseData[i].questions == req.params.questions){
+      res.send({
+        coinValue: courseData[i].coinValue,
+        correctIndex: courseData[i].correctIndex
+      })
+    }
+  }
+
+  res.send({})
+
   res.send(req.params);
 });
 
