@@ -1,7 +1,7 @@
 import type { CardProps } from 'tamagui'
 import { Text, View, Card, H2, Paragraph, Image } from "tamagui";
 
-export default function TabTwoScreen(props: CardProps) {
+export default function ProfileScreen() {
   return (
     <View flex={1} alignItems="center">
       <Image
