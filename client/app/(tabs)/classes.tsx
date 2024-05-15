@@ -18,7 +18,7 @@ export default function ClassesScreen() {
             pressStyle={{ scale: 0.875 }}
           />
           <Image
-            source={require("../../assets/images/Elara_Pixel.png")}
+            source={require("../../assets/images/unit_one.jpg")}
             borderRadius={10}
             style={{ width: "80%", height: 400, borderRadius: 10 }}
           />

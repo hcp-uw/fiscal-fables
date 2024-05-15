@@ -21,7 +21,7 @@
     "@tamagui/image": "^1.94.4",
     "@tamagui/metro-plugin": "^1.94.1",
     "babel-preset-expo": "^10.0.1",
-    "expo": "~50.0.6",
+    "expo": "^51.0.5",
     "expo-font": "~11.10.2",
     "expo-linking": "~6.2.1",
     "expo-router": "~3.4.7",
