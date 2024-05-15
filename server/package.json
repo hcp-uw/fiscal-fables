@@ -1,12 +1,14 @@
 {
-  "name": "server",
+  "name": "fiscal-fables",
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "start": "nodemon",
+    "dev": "nodemon src/app.js"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
