@@ -1,4 +1,5 @@
 # Node.js Template
+
 For the backend we are using Node.js as it uses Javascript in the same way React does. With the Expo set up requiring the download of Node, it also allows for an easier time setting up your stack. If you desire to change anything here to fit your needs better, please feel free!
 
 ## Getting Started
